@@ -30,6 +30,7 @@ export default class Handle extends React.Component {
       tipTransitionName,
       tipAlign,
       tipContainer,
+      tipAlwaysVisible,
       tipFormatter,
       vertical,
       offset,
@@ -51,7 +52,7 @@ export default class Handle extends React.Component {
       return handle;
     }
 
-    const isTooltipVisible = dragging || this.state.isTooltipVisible;
+    const isTooltipVisible = tipAlwaysVisible || dragging || this.state.isTooltipVisible;
     return (
       <Tooltip
         prefixCls={tooltipPrefixCls || `${prefixCls}-tooltip`}
@@ -78,6 +79,7 @@ Handle.propTypes = {
   tipTransitionName: React.PropTypes.string,
   tipAlign: React.PropTypes.object,
   tipContainer: React.PropTypes.func,
+  tipAlwaysVisible: React.PropTypes.bool,
   tipFormatter: React.PropTypes.func,
   value: React.PropTypes.number,
   dragging: React.PropTypes.bool,

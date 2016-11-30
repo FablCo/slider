@@ -454,6 +454,7 @@ class Slider extends React.Component {
         tipTransitionName,
         tipAlign,
         tipContainer,
+        tipAlwaysVisible,
         tipFormatter,
         children,
     } = this.props;
@@ -480,6 +481,7 @@ class Slider extends React.Component {
       tipTransitionName,
       tipAlign,
       tipContainer,
+      tipAlwaysVisible,
       tipFormatter,
       vertical,
     };
@@ -566,6 +568,7 @@ Slider.propTypes = {
   tipTransitionName: React.PropTypes.string,
   tipAlign: React.PropTypes.object,
   tipContainer: React.PropTypes.func,
+  tipAlwaysVisible: React.PropTypes.bool,
   tipFormatter: React.PropTypes.func,
   dots: React.PropTypes.bool,
   range: React.PropTypes.oneOfType([
@@ -585,6 +588,7 @@ Slider.defaultProps = {
   className: '',
   tipTransitionName: '',
   tipAlign: {},
+  tipAlwaysVisible: false,
   min: 0,
   max: 100,
   step: 1,
