@@ -46,7 +46,7 @@ export default class Handle extends React.Component {
       style,
     };
 
-    if (tipAlwaysVisible) {
+    if (!tipAlwaysVisible) {
       handleProps = {
         ...handleProps,
         onMouseUp: this.showTooltip.bind(this),
