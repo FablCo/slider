@@ -40,12 +40,23 @@ export default class Handle extends React.Component {
     } = this.props;
 
     const style = vertical ? { bottom: `${offset}%` } : { left: `${offset}%` };
+
+    let handleProps = {
+      className,
+      style,
+    };
+
+    if (tipAlwaysVisible) {
+      handleProps = {
+        ...handleProps,
+        onMouseUp: this.showTooltip.bind(this),
+        onMouseEnter: this.showTooltip.bind(this),
+        onMouseLeave: this.hideTooltip.bind(this),
+      };
+    }
+
     const handle = (
-      <div className={className} style={style}
-        onMouseUp={this.showTooltip.bind(this)}
-        onMouseEnter={this.showTooltip.bind(this)}
-        onMouseLeave={this.hideTooltip.bind(this)}
-      />
+      <div {...handleProps} />
     );
 
     if (noTip) {
